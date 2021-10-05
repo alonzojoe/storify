@@ -38,7 +38,7 @@ if (isset($_SESSION['user_id'])) {
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Blog</title>
+  <title>Storify</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -61,7 +61,7 @@ if (isset($_SESSION['user_id'])) {
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Blog</h1>
+            <h1>StorifyF</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -163,11 +163,16 @@ if (isset($_SESSION['user_id'])) {
               </div><!-- /.card-header -->
               <div class="card-body">
                 <div class="tab-content">
+
+                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-lg">
+                    Create Post
+                    </button>
+                    <br>
                   <div class="active tab-pane" id="activity">
                     <!-- Post -->
                     <div class="post">
                       <div class="user-block">
-                        <img class="img-circle img-bordered-sm" src="dist/img/user1-128x128.jpg" alt="user image">
+                        <img style="height=200px;height=200px;" class="img-circle img-bordered-sm" src="dist/img/user1-128x128.jpg" alt="user image">
                         <span class="username">
                           <a href="#">Jonathan Burke Jr.</a>
                           <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
@@ -553,6 +558,49 @@ if (isset($_SESSION['user_id'])) {
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
+<div class="modal fade" id="modal-lg">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title"><b>Create Post</b></h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="user-block">
+                    <img style="" class="img-circle elevation-2" src="<?php echo $photo; ?>" alt="user image">
+                      <span class="username">
+                        <b style="font-family: Arial;"><?php echo "{$fname} {$mname} {$lname}"; ?></b>
+                      </span>
+                    <span class="description">Public Post</span>
+              </div>
+              <br><br><br>
+              <div class="form-group">
+                <textarea id="inputDescription" style="border: none;outline: none; font-size:large;" class="form-control" rows="3" placeholder="Create Event."></textarea>
+                <style>
+              .image-upload>input {
+                display: none;
+              }
+              </style>
+
+              <div class="image-upload">
+                <label for="file-input">
+                  <img src="dist/img/uploadpic.png"/ style="height: 50px;width:50px;">
+                </label>
+                <input id="file-input" type="file" />
+              </div>
+              </div>
+
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-primary">Post</button>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
 
 <!-- jQuery -->
 <script src="plugins/jquery/jquery.min.js"></script>
@@ -562,7 +610,7 @@ if (isset($_SESSION['user_id'])) {
 <script src="dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
-</body>
+</body>s
 </html>
 <?php 
 }else{
